@@ -1,4 +1,50 @@
 {
-  "app.title": "Carvago Frontend Assignment",
-  "app.description": "Assignment in React.js for developers who want to join our team."
+  "app": {
+    "title": "Carvago Frontend Assignment",
+    "description": "Assignment in React.js for developers who want to join our team."
+  },
+  "icon": "Icon",
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "section": {
+    "title": "Section title",
+    "add": "Add a section",
+    "mark_all": "Mark all done",
+    "edit": "Edit",
+    "delete": "Delete list",
+    "more": "More",
+    "navigation": {
+      "all": "All",
+      "to_do": "To do",
+      "done": "Done"
+    }
+  },
+  "task": {
+    "add": "Add",
+    "add_task": "Add task",
+    "add_new_task": "Add new task",
+    "edit": "Edit task",
+    "delete": "Delete",
+    "clear_all": "Clear all",
+    "clear_all_done": "Clear all done task",
+    "show_all": "Show all tasks",
+    "view_completed": "View completed tasks",
+    "view_todo": "View to-do items"
+  },
+  "modal": {
+    "heading": "Edit task",
+    "created_by": "Created by",
+    "created_date": "Created date",
+    "task_name": "Task name",
+    "description": "Write a detailed description of the task",
+    "priority": "Priority"
+  },
+  "priority": {
+    "high": "High",
+    "low": "Low",
+    "medium": "Medium",
+    "none": "None"
+  }
 }

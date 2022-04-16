@@ -16,7 +16,6 @@ i18n
       },
     },
     debug: false,
-    keySeparator: false,
     interpolation: {
       escapeValue: false,
       formatSeparator: ',',

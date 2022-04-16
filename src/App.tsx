@@ -1,8 +1,13 @@
 import {Helmet} from 'react-helmet-async';
 import {useTranslation} from 'react-i18next';
+import Layout from './components/layout/Layout';
+import React from 'react';
+import moment from 'moment';
 
-function App() {
+const App = () => {
   const {i18n, t} = useTranslation();
+
+  moment.locale('en');
 
   return (
     <>
@@ -13,13 +18,9 @@ function App() {
       >
         <meta name="description" content={t('app.description')} />
       </Helmet>
-
-      <h1>Welcome to Carvago Front-End Assignment</h1>
-      {/**
-       * continue
-       */}
+      <Layout />
     </>
   );
-}
+};
 
 export default App;
