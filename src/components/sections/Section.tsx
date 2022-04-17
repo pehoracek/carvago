@@ -38,7 +38,7 @@ const Section = ({section}: SectionProps) => {
       {filteredTasks.map((task) => (
         <Task key={task.id} task={task} />
       ))}
-      <AddTask sectionId={section.id} />
+      <AddTask section={section} />
     </Wrapper>
   );
 };
@@ -52,9 +52,11 @@ const Wrapper = styled.div`
   border: 1px solid ${COLORS.separator};
   border-radius: ${RADIUSES.small};
   flex-shrink: 0;
-  margin-right: 1rem;
+  margin-bottom: 1rem;
 
   ${breakpoint(NUM_BREAKPOINTS.tablet)} {
     width: 344px;
+    margin-bottom: 0;
+    margin-right: 1rem;
   }
 `;

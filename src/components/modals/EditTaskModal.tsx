@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import styled from 'styled-components/macro';
+import styled, {keyframes} from 'styled-components/macro';
 import {
   COLORS,
   flex,
   FONT_WEIGHTS,
   NUM_BREAKPOINTS,
   RADIUSES,
+  TRANSITIONS,
   Z_INDEXES,
 } from '../../constants/style';
 import {PrimaryButton, SecondaryButton, TransparentButton} from '../ui/Buttons';
@@ -118,6 +119,15 @@ const EditTaskModal = () => {
 
 export default EditTaskModal;
 
+const revealModal = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 const Modal = styled.div`
   position: fixed;
   top: 0;
@@ -127,6 +137,7 @@ const Modal = styled.div`
   z-index: ${Z_INDEXES.editTaskModal};
   background: rgba(9, 30, 66, 0.4);
   overflow: auto;
+  animation ${revealModal} ${TRANSITIONS.basic};
 `;
 
 const Content = styled.div<{showDropdown: boolean}>`
@@ -136,16 +147,16 @@ const Content = styled.div<{showDropdown: boolean}>`
   width: 100%;
   height: 100%;
   background: ${COLORS.white};
-  border-radius: ${RADIUSES.medium};
   overflow: auto;
 
   ${({showDropdown}) =>
     showDropdown &&
     css`
-      padding-bottom: 70px;
+      padding-bottom: 80px;
     `}
 
   ${breakpoint(NUM_BREAKPOINTS.tablet)} {
+    border-radius: ${RADIUSES.medium};
     width: 580px;
     height: auto;
     left: 50%;
@@ -155,7 +166,7 @@ const Content = styled.div<{showDropdown: boolean}>`
     ${({showDropdown}) =>
       showDropdown &&
       css`
-        min-height: 500px;
+        min-height: 510px;
       `}
 
     @media screen and (min-height: 500px) {

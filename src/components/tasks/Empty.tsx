@@ -32,6 +32,7 @@ const Empty = () => {
               name="input"
               onChange={props.handleChange}
               value={props.values.input}
+              autoFocus
             />
             <Buttons>
               <SecondaryButton onClick={() => props.setFieldValue('input', '')} type="button">

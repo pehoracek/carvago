@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {SectionsStateType} from '../ts/types';
-import {getRandomNum} from '../utils';
 import {SectionFilterEnum} from '../ts/enums';
 
 const initialState: SectionsStateType = {
@@ -11,9 +10,16 @@ export const sectionsSlice = createSlice({
   name: 'sections',
   initialState,
   reducers: {
-    addSection: (state, action: PayloadAction<{title: string}>) => {
-      const {title} = action.payload;
-      const newSection = {id: getRandomNum(), title, activeFilter: SectionFilterEnum.All};
+    addSection: (state, action: PayloadAction<{title?: string; autoTitle?: boolean}>) => {
+      const {title, autoTitle} = action.payload;
+
+      const newId =
+        state.allSections.length === 0 ? 1 : state.allSections[state.allSections.length - 1].id + 1;
+      const newSection = {
+        id: newId,
+        title: !autoTitle && title ? title : `Section title ${newId}`,
+        activeFilter: SectionFilterEnum.All,
+      };
       state.allSections = [...state.allSections, newSection];
     },
     changeSectionFilter: (

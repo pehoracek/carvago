@@ -19,6 +19,10 @@ const Tasks = () => {
 
   const dispatch = useDispatch();
 
+  const newSectionHandler = () => {
+    dispatch(addSection({autoTitle: true}));
+  };
+
   return (
     <Wrapper>
       {allSections.length === 0 ? (
@@ -28,11 +32,7 @@ const Tasks = () => {
           {allSections.map((section) => (
             <Section key={section.id} section={section} />
           ))}
-          <NewSectionButton
-            onClick={() => dispatch(addSection({title: `Section title ${allSections.length + 1}`}))}
-          >
-            + {t('section.add')}
-          </NewSectionButton>
+          <NewSectionButton onClick={newSectionHandler}>+ {t('section.add')}</NewSectionButton>
         </>
       )}
       {editingTask && <EditTaskModal />}
@@ -45,8 +45,11 @@ export default Tasks;
 const Wrapper = styled.div`
   margin-top: 1rem;
   width: 100%;
-  ${flex.start}
-  align-items: flex-start;
+
+  ${breakpoint(NUM_BREAKPOINTS.tablet)} {
+    ${flex.start}
+    align-items: flex-start;
+  }
 `;
 
 const NewSectionButton = styled(SecondaryButton)`

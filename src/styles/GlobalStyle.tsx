@@ -143,6 +143,7 @@ const GlobalStyle = createGlobalStyle`
      line-height: ${LINE_HEIGHTS.button};
      font-weight: 400;
      border-radius: ${RADIUSES.small};
+     color: ${COLORS.black};
    }
 `;
 

@@ -31,7 +31,7 @@ export interface IndividualDropdownProps extends DropdownProps {
 export interface DropdownItemProps {
   label: string;
   dropdownItemType: DropdownItemType;
-  onClick?: any;
+  onClick?: () => void;
   color?: string;
   arrow?: boolean;
   type?: 'button' | 'submit' | 'reset';

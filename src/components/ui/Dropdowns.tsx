@@ -88,15 +88,23 @@ const Item = styled(TransparentButton)<{
           `
         : ``}
 
-      ${Dot} {
-        display: block;
-        width: 16px;
-        height: 16px;
-        margin-left: 8px;
-        margin-right: 12px;
-        border-radius: 20px;
-        background: ${dotColor};
-      }
+      ${dotColor !== 'transparent'
+        ? css`
+            ${Dot} {
+              display: block;
+              width: 16px;
+              height: 16px;
+              margin-left: 8px;
+              margin-right: 12px;
+              border-radius: 20px;
+              background: ${dotColor};
+            }
+          `
+        : css`
+            h5 {
+              margin-left: 8px;
+            }
+          `}
 
       img {
         display: none;

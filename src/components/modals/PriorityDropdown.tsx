@@ -4,9 +4,14 @@ import {useTranslation} from 'react-i18next';
 import {IndividualDropdownProps} from '../../ts/interfaces';
 import {COLORS} from '../../constants/style';
 import {PriorityType} from '../../ts/types';
+import {FormikProps} from 'formik';
 
 interface Props extends IndividualDropdownProps {
-  formikProps: any;
+  formikProps: FormikProps<{
+    title: string;
+    description: string;
+    priority: PriorityType;
+  }>;
 }
 
 const PriorityDropdown = ({isActive, formikProps, closeAction}: Props) => {
@@ -38,6 +43,13 @@ const PriorityDropdown = ({isActive, formikProps, closeAction}: Props) => {
         dropdownItemType="color"
         color={COLORS.success}
         onClick={() => changePriority('low')}
+        type="button"
+      />
+      <DropdownItem
+        label={t('priority.none')}
+        dropdownItemType="color"
+        color="transparent"
+        onClick={() => changePriority('none')}
         type="button"
       />
     </Dropdown>

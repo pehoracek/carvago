@@ -12,16 +12,18 @@ import {getPriorityColor} from '../../utils';
 
 const Task = ({task}: TaskProps) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [taskOpen, setTaskOpen] = useState(false);
   const dispatch = useDispatch();
   const {t} = useTranslation();
 
   return (
     <TaskContainer labelColor={getPriorityColor(task)}>
       <Checkbox onChange={() => dispatch(toggleTask(task.id))} checked={task.completed} />
-      <h5>{task.title}</h5>
+      <Title onClick={() => setTaskOpen(!taskOpen)}>{task.title}</Title>
       <TransparentButton isActive={modalVisible} onClick={() => setModalVisible(!modalVisible)}>
         <img src="/assets/icons/three-dots-icon.svg" alt={t('section.more')} />
       </TransparentButton>
+      {taskOpen && task.description && <TaskDescription>{task.description}</TaskDescription>}
       <TaskDropdown
         isActive={modalVisible}
         closeAction={() => setModalVisible(false)}
@@ -39,6 +41,7 @@ const TaskContainer = styled.div<{labelColor: string}>`
   position: relative;
   border-radius: 4px;
   ${flex.start}
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 
   &:before {
@@ -53,9 +56,19 @@ const TaskContainer = styled.div<{labelColor: string}>`
     background: ${({labelColor}) => labelColor};
     border-radius: 4px 0 0 4px;
   }
+`;
 
-  h5 {
-    margin: 0 auto 0 0.5rem;
-    font-weight: ${FONT_WEIGHTS.normal};
-  }
+const Title = styled.h5`
+  margin: 0 auto 0 0.5rem;
+  font-weight: ${FONT_WEIGHTS.normal};
+  flex: 1;
+  cursor: pointer;
+`;
+
+const TaskDescription = styled.h5`
+  width: 100%;
+  flex-shrink: 0;
+  color: ${COLORS.neutralGrey};
+  margin-top: 1rem;
+  font-weight: ${FONT_WEIGHTS.normal};
 `;
