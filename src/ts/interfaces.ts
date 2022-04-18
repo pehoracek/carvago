@@ -1,10 +1,6 @@
 import {ChildrenType, DropdownItemType, SectionType, TaskType} from './types';
 import {ButtonHTMLAttributes} from 'react';
 
-export interface LayoutProps {
-  children?: ChildrenType;
-}
-
 export interface SectionProps {
   section: SectionType;
 }

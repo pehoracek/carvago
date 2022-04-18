@@ -8,6 +8,7 @@ import {addTask} from '../../app/tasksReducer';
 import {AuthorReducerType, SectionType} from '../../ts/types';
 import {changeSectionFilter} from '../../app/sectionsReducer';
 import {SectionFilterEnum} from '../../ts/enums';
+import {useTranslation} from 'react-i18next';
 
 interface Props {
   section: SectionType;
@@ -15,6 +16,8 @@ interface Props {
 
 const AddTask = ({section}: Props) => {
   const dispatch = useDispatch();
+
+  const {t} = useTranslation();
 
   const {authorName} = useSelector((state: AuthorReducerType) => state.author);
 
@@ -49,10 +52,15 @@ const AddTask = ({section}: Props) => {
               value={props.values.text}
               onChange={props.handleChange}
               placeholder="Add new task"
+              data-test-id="add-task-input"
               autoFocus
             />
-            <PrimaryButton isDisabled={props.values.text.length === 0} type="submit">
-              Add
+            <PrimaryButton
+              disabled={props.values.text.length === 0}
+              type="submit"
+              data-test-id="add-task-submit"
+            >
+              {t('task.add')}
             </PrimaryButton>
           </Container>
         </form>

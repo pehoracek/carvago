@@ -14,7 +14,8 @@ interface Props extends IndividualDropdownProps {
   }>;
 }
 
-const PriorityDropdown = ({isActive, formikProps, closeAction}: Props) => {
+const PriorityDropdown = (props: Props) => {
+  const {isActive, formikProps, closeAction} = props;
   const {t} = useTranslation();
 
   const changePriority = (priority: PriorityType) => {
@@ -23,7 +24,7 @@ const PriorityDropdown = ({isActive, formikProps, closeAction}: Props) => {
   };
 
   return (
-    <Dropdown isActive={isActive} top={40}>
+    <Dropdown {...props} isActive={isActive} top={40} data-test-id="priority-dropdown">
       <DropdownItem
         label={t('priority.high')}
         dropdownItemType="color"

@@ -7,14 +7,8 @@ import {useTranslation} from 'react-i18next';
 import {DropdownItemType} from '../../ts/types';
 import {css} from 'styled-components';
 
-export const DropdownItem = ({
-  label,
-  dropdownItemType,
-  onClick,
-  color,
-  arrow,
-  type,
-}: DropdownItemProps) => {
+export const DropdownItem = (props: DropdownItemProps) => {
+  const {label, dropdownItemType, onClick, color, arrow, type} = props;
   const {t} = useTranslation();
 
   const getIcon = () => {
@@ -36,6 +30,7 @@ export const DropdownItem = ({
 
   return (
     <Item
+      {...props}
       dropdownItemType={dropdownItemType}
       onClick={onClick}
       dotColor={color}
@@ -117,11 +112,14 @@ const Item = styled(TransparentButton)<{
   }
 `;
 
-export const Dropdown = ({children, top, right, isActive}: DropdownProps) => (
-  <DropdownContainer top={top} right={right} isActive={isActive}>
-    {children}
-  </DropdownContainer>
-);
+export const Dropdown = (props: DropdownProps) => {
+  const {children, top, right, isActive} = props;
+  return (
+    <DropdownContainer {...props} top={top} right={right} isActive={isActive}>
+      {children}
+    </DropdownContainer>
+  );
+};
 
 const DropdownContainer = styled.div<{top?: number; right?: number; isActive?: boolean}>`
   padding: 0.5rem;

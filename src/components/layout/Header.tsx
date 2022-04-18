@@ -32,7 +32,7 @@ const Header = () => {
           onSubmit={(values) => editNameHandler(values)}
         >
           {(props) => (
-            <EditAuthorForm onSubmit={props.handleSubmit}>
+            <EditAuthorForm onSubmit={props.handleSubmit} data-test-id="edit-author-form">
               <input
                 type="text"
                 name="authorName"
@@ -47,7 +47,9 @@ const Header = () => {
         </Formik>
       ) : (
         <Name>
-          <h4 onClick={() => setEditingAuthor(true)}>{authorName}</h4>
+          <h4 onClick={() => setEditingAuthor(true)} data-test-id="edit-author">
+            {authorName}
+          </h4>
         </Name>
       )}
       <Navigation />

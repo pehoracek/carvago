@@ -70,7 +70,7 @@ const EditTaskModal = () => {
               onSubmit={(values) => submitHandler(values)}
             >
               {(props) => (
-                <form onSubmit={props.handleSubmit}>
+                <form onSubmit={props.handleSubmit} data-test-id="edit-task-modal-form">
                   <InputContainer>
                     <SmallText color={COLORS.neutralGrey}>{t('modal.task_name')}</SmallText>
                     <input
@@ -94,6 +94,7 @@ const EditTaskModal = () => {
                       onClick={() => setShowDropdown(!showDropdown)}
                       type="button"
                       arrow
+                      data-test-id="select-priority"
                     />
                     <PriorityDropdown
                       isActive={showDropdown}

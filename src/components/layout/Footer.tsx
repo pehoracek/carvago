@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import {flex, RADIUSES} from '../../constants/style';
+import {COLORS, flex, RADIUSES, TRANSITIONS} from '../../constants/style';
 
 const Footer = () => (
   <FooterComponent>
@@ -34,13 +34,18 @@ const FooterComponent = styled.footer`
 `;
 
 const Link = styled.a`
-  background: rgba(0, 0, 0, 0.02);
+  background: ${COLORS.lightGrey};
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 0.5rem 1.5rem;
   border-radius: ${RADIUSES.small};
+  transition: all ${TRANSITIONS.basic};
 
   &:last-child {
     margin-left: 0.5rem;
+  }
+
+  &:hover {
+    background: ${COLORS.darkGrey};
   }
 `;

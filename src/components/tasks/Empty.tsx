@@ -24,7 +24,11 @@ const Empty = () => {
       <SmallText color={'#42526E'} style={{marginBottom: 4}}>
         {t('section.title')}
       </SmallText>
-      <Formik initialValues={{input: ''}} onSubmit={(values) => addSectionHandler(values.input)}>
+      <Formik
+        initialValues={{input: ''}}
+        onSubmit={(values) => addSectionHandler(values.input)}
+        enableReinitialize
+      >
         {(props) => (
           <form onSubmit={props.handleSubmit}>
             <input
@@ -32,13 +36,25 @@ const Empty = () => {
               name="input"
               onChange={props.handleChange}
               value={props.values.input}
+              placeholder="Add new section"
+              data-test-id="empty-new-section-input"
               autoFocus
             />
             <Buttons>
-              <SecondaryButton onClick={() => props.setFieldValue('input', '')} type="button">
+              <SecondaryButton
+                onClick={() => props.setFieldValue('input', '')}
+                type="button"
+                data-test-id="empty-new-section-cancel"
+              >
                 {t('buttons.cancel')}
               </SecondaryButton>
-              <PrimaryButton type="submit">{t('buttons.save')}</PrimaryButton>
+              <PrimaryButton
+                type="submit"
+                data-test-id="empty-new-section-submit"
+                disabled={props.values.input.length === 0}
+              >
+                {t('buttons.save')}
+              </PrimaryButton>
             </Buttons>
           </form>
         )}

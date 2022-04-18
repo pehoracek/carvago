@@ -1,9 +1,6 @@
 import styled from 'styled-components/macro';
 import {css} from 'styled-components';
-import {TransparentButton} from './Buttons';
-import {COLORS, flex, TRANSITIONS} from '../../constants/style';
-import {FilterButtonProps} from '../../ts/interfaces';
-import {useState} from 'react';
+import {COLORS, flex} from '../../constants/style';
 
 export const SmallText = styled.p<{color?: string}>`
   font-size: 12px;
@@ -15,48 +12,6 @@ export const SmallText = styled.p<{color?: string}>`
       color: ${color};
     `}
 `;
-
-export const BlueButton = styled(TransparentButton)<{isActive?: boolean}>`
-  padding-bottom: 6px;
-  background: transparent !important;
-
-  &:after {
-    position: absolute;
-    content: '';
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: transparent;
-    transition: all ${TRANSITIONS.basic};
-  }
-
-  ${({isActive}) =>
-    isActive &&
-    css`
-      color: ${COLORS.blue};
-      position: relative;
-
-      &:after {
-        background: ${COLORS.blue};
-      }
-    `}
-`;
-
-export const FilterButton = (props: FilterButtonProps) => {
-  const {children, isActive} = props;
-  const [isHovering, setIsHovering] = useState(false);
-  return (
-    <BlueButton
-      {...props}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      isActive={isActive || isHovering}
-    >
-      {children}
-    </BlueButton>
-  );
-};
 
 export const Checkbox = styled.input.attrs({type: 'checkbox'})`
   width: 20px;

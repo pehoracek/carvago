@@ -22,6 +22,7 @@ const TaskDropdown = ({isActive, closeAction, task}: Props) => {
           dispatch(setEditTask(task));
           closeAction();
         }}
+        data-test-id="edit-task"
       />
       <DropdownItem
         label={t('task.delete')}
@@ -30,6 +31,7 @@ const TaskDropdown = ({isActive, closeAction, task}: Props) => {
           dispatch(deleteTask(task.id));
           closeAction();
         }}
+        data-test-id="delete-task"
       />
     </Dropdown>
   );

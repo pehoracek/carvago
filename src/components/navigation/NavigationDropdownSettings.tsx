@@ -10,7 +10,7 @@ const NavigationDropdownSettings = ({isActive, closeAction}: IndividualDropdownP
   const dispatch = useDispatch();
 
   return (
-    <Dropdown isActive={isActive} top={36} right={0}>
+    <Dropdown isActive={isActive} top={36} right={0} data-test-id="navigation-dropdown-settings">
       <DropdownItem
         label={t('task.clear_all')}
         dropdownItemType="clearAll"

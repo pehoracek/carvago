@@ -16,7 +16,7 @@ const NavigationDropdownFilter = ({isActive, closeAction}: IndividualDropdownPro
   };
 
   return (
-    <Dropdown isActive={isActive} top={36} right={40}>
+    <Dropdown isActive={isActive} top={36} right={40} data-test-id="navigation-dropdown-filters">
       <DropdownItem
         label={t('task.show_all')}
         dropdownItemType="clearAll"

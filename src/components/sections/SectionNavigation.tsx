@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/macro';
 import {flex, FONT_WEIGHTS} from '../../constants/style';
-import {TransparentButton} from '../ui/Buttons';
+import {FilterButton, TransparentButton} from '../ui/Buttons';
 import {useTranslation} from 'react-i18next';
 import {SectionFilterEnum} from '../../ts/enums';
-import {FilterButton} from '../ui/Elements';
 import SectionDropdown from './SectionDropdown';
 import {SectionType} from '../../ts/types';
 import {useDispatch} from 'react-redux';

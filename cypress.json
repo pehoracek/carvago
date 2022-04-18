@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "componentFolder": "src",
+  "video": false,
+  "testFiles": [
+    "first_section.spec.js",
+    "new_task.spec.js",
+    "mark_task.spec.js",
+    "edit_task.spec.js",
+    "filters.spec.js",
+    "change_author.spec.js",
+    "settings.spec.js"
+  ]
+}

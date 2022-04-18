@@ -18,10 +18,16 @@ const Navigation = () => {
       <h4>Today</h4>
       <SmallText>{moment().format('ddd DD MMM')}</SmallText>
       <Buttons>
-        <NavButton onClick={() => setFilterModal(!filterModal)}>
+        <NavButton
+          onClick={() => setFilterModal(!filterModal)}
+          data-test-id="global-filters-button"
+        >
           <img src="/assets/icons/filtering-icon.svg" alt={t('icon')} />
         </NavButton>
-        <NavButton onClick={() => setSettingsModal(!settingsModal)}>
+        <NavButton
+          onClick={() => setSettingsModal(!settingsModal)}
+          data-test-id="global-settings-button"
+        >
           <img src="/assets/icons/settings-icon.svg" alt={t('icon')} />
         </NavButton>
         <NavigationDropdownFilter

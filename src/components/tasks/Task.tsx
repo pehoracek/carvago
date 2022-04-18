@@ -18,9 +18,17 @@ const Task = ({task}: TaskProps) => {
 
   return (
     <TaskContainer labelColor={getPriorityColor(task)}>
-      <Checkbox onChange={() => dispatch(toggleTask(task.id))} checked={task.completed} />
+      <Checkbox
+        onChange={() => dispatch(toggleTask(task.id))}
+        checked={task.completed}
+        data-test-id="task-checkbox"
+      />
       <Title onClick={() => setTaskOpen(!taskOpen)}>{task.title}</Title>
-      <TransparentButton isActive={modalVisible} onClick={() => setModalVisible(!modalVisible)}>
+      <TransparentButton
+        isActive={modalVisible}
+        onClick={() => setModalVisible(!modalVisible)}
+        data-test-id="open-task-dropdown"
+      >
         <img src="/assets/icons/three-dots-icon.svg" alt={t('section.more')} />
       </TransparentButton>
       {taskOpen && task.description && <TaskDescription>{task.description}</TaskDescription>}
@@ -71,4 +79,5 @@ const TaskDescription = styled.h5`
   color: ${COLORS.neutralGrey};
   margin-top: 1rem;
   font-weight: ${FONT_WEIGHTS.normal};
+  white-space: pre-wrap;
 `;
