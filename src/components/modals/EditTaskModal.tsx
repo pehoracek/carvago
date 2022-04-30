@@ -86,7 +86,7 @@ const EditTaskModal = () => {
                       onChange={props.handleChange}
                     />
                   </InputContainer>
-                  <Priority>
+                  <Priority showDropdown={showDropdown}>
                     <DropdownItem
                       label={t(getPriorityLabel(props.values))}
                       dropdownItemType="color"
@@ -120,12 +120,18 @@ const EditTaskModal = () => {
 
 export default EditTaskModal;
 
+const blurPx = '5px';
+
 const revealModal = keyframes`
   0% {
     opacity: 0;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
   }
   100% {
     opacity: 1;
+    -webkit-backdrop-filter: blur(${blurPx});
+    backdrop-filter: blur(${blurPx});
   }
 `;
 
@@ -139,6 +145,8 @@ const Modal = styled.div`
   background: rgba(9, 30, 66, 0.4);
   overflow: auto;
   animation ${revealModal} ${TRANSITIONS.basic};
+  -webkit-backdrop-filter: blur(${blurPx});
+  backdrop-filter: blur(${blurPx});
 `;
 
 const Content = styled.div<{showDropdown: boolean}>`
@@ -228,9 +236,15 @@ const InputContainer = styled.div`
   }
 `;
 
-const Priority = styled.div`
+const Priority = styled.div<{showDropdown: boolean}>`
   position: relative;
   width: 266px !important;
+
+  ${({showDropdown}) =>
+    !showDropdown &&
+    css`
+      overflow: hidden;
+    `}
   > * {
     width: 100%;
   }

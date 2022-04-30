@@ -1,8 +1,10 @@
 import {Helmet} from 'react-helmet-async';
 import {useTranslation} from 'react-i18next';
-import Layout from './components/layout/Layout';
 import React from 'react';
 import moment from 'moment';
+import Header from './components/layout/Header';
+import Main from './components/layout/Main';
+import Footer from './components/layout/Footer';
 
 const App = () => {
   const {i18n, t} = useTranslation();
@@ -18,7 +20,9 @@ const App = () => {
       >
         <meta name="description" content={t('app.description')} />
       </Helmet>
-      <Layout />
+      <Header />
+      <Main />
+      <Footer />
     </>
   );
 };

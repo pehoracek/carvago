@@ -7,6 +7,7 @@ import WebVitals from './WebVitals';
 import {store} from './app/store';
 import './i18n/i18n';
 import GlobalStyle from './styles/GlobalStyle';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
@@ -22,3 +23,5 @@ ReactDOM.render(
   </StrictMode>,
   MOUNT_NODE
 );
+
+serviceWorkerRegistration.register();

@@ -50,6 +50,9 @@ const Header = () => {
           <h4 onClick={() => setEditingAuthor(true)} data-test-id="edit-author">
             {authorName}
           </h4>
+          <TransparentButton onClick={() => setEditingAuthor(true)}>
+            <img src="/assets/icons/edit-icon.svg" alt={t('icon')} />
+          </TransparentButton>
         </Name>
       )}
       <Navigation />
@@ -63,6 +66,14 @@ const Name = styled.div`
   background: ${COLORS.white};
   padding: 12px 16px;
   border-bottom: 1px solid ${COLORS.separator};
+  ${flex.start}
+
+  button {
+    width: 24px;
+    height: 24px;
+    ${flex.center}
+    margin-left: 0.5rem;
+  }
 `;
 
 const EditAuthorForm = styled.form`

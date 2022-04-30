@@ -9,6 +9,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build&run": "react-scripts build && serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettify": "prettier --write --config ./.prettierrc --ignore-path ./.prettierignore .",
@@ -30,7 +31,11 @@
     "react-scripts": "5.0.0",
     "styled-components": "^5.2.1",
     "typescript": "^4.5.5",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "workbox-core": "^6.5.3",
+    "workbox-expiration": "^6.5.3",
+    "workbox-precaching": "^6.5.3",
+    "workbox-routing": "^6.5.3"
   },
   "eslintConfig": {
     "extends": [
